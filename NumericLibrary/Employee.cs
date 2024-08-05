@@ -19,5 +19,32 @@ namespace NumericLibrary
                 return null;
         }
 
+        //    public bool AddCustomer()
+        //    {
+        //        EMail obj = new EMail();
+        //        // some logic will come here to add record on database
+        //        bool resp = obj.SendEmail(); // external dep which we want to bypass
+        //        return true;
+
+        //    } 
+
+        public bool AddCustomer(EMail obj)
+        {
+            //EMail obj = new EMail();
+            // some logic will come here to add record on database
+            bool resp = obj.SendEmail(); // external dep which we want to bypass
+            return true;
+
         }
     }
+    
+    public class EMail
+    {
+        public virtual bool SendEmail()
+        {
+            // some logic will come here to send mail
+            return true;
+        }
+    } 
+}
+

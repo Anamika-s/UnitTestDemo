@@ -35,6 +35,7 @@ namespace TestProject
             Assert.AreEqual(expected, actual);
         }
         [Test]
+        [Ignore("Ignore this test case")]
         public void AddNumbers5()
         {
             //NumericLibrary.NumericFunctions numericFunctions = new NumericLibrary.NumericFunctions();
@@ -48,12 +49,20 @@ namespace TestProject
         [TestCase(20, 10, 30)]
         [TestCase(2, 11, 13)]
         [TestCase(0, 1, 1)]
+        [Author("Jane Doe", "jane.doe@example.com")]
         public void AddNumbers(int num1, int num2,int expected)
         {
             int actual = numericFunctions.AddNumbers(num1,num2);
             Assert.AreEqual(expected, actual);
         }
 
-        
+        [Test]
+        //[ExpectedException(typeof(DivideByZeroException))]
+        public void Test()
+        {
+            int i = 10, j = 0, x;
+            x = i / j;
+        }
+
     } 
 }

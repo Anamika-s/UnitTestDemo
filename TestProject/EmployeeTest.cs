@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,21 @@ namespace TestProject
             string actual = employee.GetLeaves(dept, exp);
             Assert.AreEqual(expected, actual);
         }
+
+
+        // Moq Testing
+
+        [Test]
+        public void AddCustomer()
+        {
+            Mock<NumericLibrary.EMail> obj = new Mock<NumericLibrary.EMail>();
+            obj.Setup(x => x.SendEmail()).Returns(true);
+            NumericLibrary.Employee employee = new NumericLibrary.Employee();
+            bool actual = employee.AddCustomer(obj.Object);
+            Assert.AreEqual(true, actual);
+        }
+
+
     }
 }
 
